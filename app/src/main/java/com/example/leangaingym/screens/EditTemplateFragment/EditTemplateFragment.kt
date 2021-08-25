@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.leangaingym.R
+import com.example.leangaingym.app.ExercisesApp
+import com.example.leangaingym.databinding.FragmentEditTemplateFramgentBinding
+import com.example.leangaingym.room.DBInfo
+import com.example.leangaingym.room.TemplatesDatabaseCommonInfoEntity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +27,9 @@ class EditTemplateFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var binding: FragmentEditTemplateFramgentBinding? = null
+    private var mDataBase: DBInfo = ExercisesApp.mDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,27 +42,68 @@ class EditTemplateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_template_framgent, container, false)
+        binding = FragmentEditTemplateFramgentBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EditTemplateFramgent.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            EditTemplateFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding?.floatingButtonFinishTemplate?.setOnClickListener {
+            val idSize = mDataBase.getTemplatesListInfoDAO().getAllTemplatesInfo().size
+
+            val mTemplateName = if (binding?.editTemplateName?.text.toString().isNotEmpty()) {
+                binding?.editTemplateName?.text.toString()
+            } else {
+                "No name"
             }
+
+            val mDescription = if (binding?.editTemplateDescription?.text.toString().isNotEmpty()) {
+                binding?.editTemplateDescription?.text.toString()
+            } else {
+                "No description"
+            }
+
+            val mDate = if (binding?.editTemplateDate?.text.toString().isNotEmpty()) {
+                binding?.editTemplateDate?.text.toString()
+            } else {
+                "No date"
+            }
+
+        mDataBase.getTemplatesListInfoDAO().add(
+            TemplatesDatabaseCommonInfoEntity(
+                id = idSize + 1,
+                templateName =  mTemplateName,
+                description = mDescription,
+                date = mDate
+            )
+        )
+            Navigation.findNavController(view).navigateUp()
     }
+}
+
+override fun onDestroy() {
+    binding = null
+    super.onDestroy()
+}
+
+companion object {
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment EditTemplateFramgent.
+     */
+    // TODO: Rename and change types and number of parameters
+    @JvmStatic
+    fun newInstance(param1: String, param2: String) =
+        EditTemplateFragment().apply {
+            arguments = Bundle().apply {
+                putString(ARG_PARAM1, param1)
+                putString(ARG_PARAM2, param2)
+            }
+        }
+}
 }

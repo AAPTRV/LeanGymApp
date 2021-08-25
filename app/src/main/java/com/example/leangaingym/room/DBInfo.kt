@@ -14,6 +14,8 @@ abstract class DBInfo : RoomDatabase() {
 
     abstract fun getExercisesListInfoDAO(): ExercisesCommonInfoDAO
 
+    abstract fun getTemplatesListInfoDAO(): TemplatesCommonInfoDAO
+
     companion object {
 
         const val LATEST_VERSION = 3
