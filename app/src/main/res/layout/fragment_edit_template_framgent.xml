@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.EditTemplateFragment.EditTemplateFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical_templateEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop_templateEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <EditText
+        android:id="@+id/editTemplateName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/guidelineTop_templateEdit"
+        android:layout_marginTop="@dimen/margin_standard"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical_templateEdit"
+        android:hint="@string/template_name_templateEdit"/>
+
+    <EditText
+        android:id="@+id/editTemplateDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/editTemplateName"
+        android:layout_marginTop="@dimen/margin_standard"
+        app:layout_constraintStart_toStartOf="@id/editTemplateName"
+        android:hint="@string/template_description_templateEdit"/>
+
+    <EditText
+        android:id="@+id/editTemplateDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/editTemplateDescription"
+        android:layout_marginTop="@dimen/margin_standard"
+        app:layout_constraintStart_toStartOf="@id/editTemplateName"
+        android:hint="@string/template_date_templateEdit"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/floatingButtonFinishTemplate"
+        android:text="@string/add_template"
+        android:textSize="@dimen/extFloatingButtonTextSize"
+        android:contentDescription="@string/edit_template"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="@dimen/floatingButtonMargin"
+        android:layout_marginBottom="@dimen/floatingButtonMargin"
+        app:backgroundTint="@color/teal_200" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

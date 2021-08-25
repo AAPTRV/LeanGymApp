@@ -14,4 +14,9 @@
     <string name="date_template">DATE</string>
     <string name="description_template">DESCRIPTION</string>
     <string name="exercise_name_template">EXERCISE NAME</string>
+    <string name="template_name_templateEdit">Template Name</string>
+    <string name="template_description_templateEdit">Template description</string>
+    <string name="template_date_templateEdit">template date</string>
+    <string name="add_template">+ add template</string>
+    <string name="edit_template">edit template</string>
 </resources>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".screens.exerciseTuning.exerciseTuningFragment">
+    tools:context=".screens.exerciseTuning.ExerciseTuningFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/TvTemplatesInformation"
@@ -37,17 +37,15 @@
         app:layout_constraintTop_toTopOf="@id/guidelineCenterTemplates"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-
-
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/floatingButtonAddTemplate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_new_template"
+        android:textSize="@dimen/extFloatingButtonTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="@dimen/floatingButtonMargin"
         android:layout_marginBottom="@dimen/floatingButtonMargin"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

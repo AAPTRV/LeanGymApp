@@ -25,7 +25,16 @@
     </fragment>
     <fragment
         android:id="@+id/exerciseTuningFragment"
-        android:name="com.example.leangaingym.screens.exerciseTuning.exerciseTuningFragment"
+        android:name="com.example.leangaingym.screens.exerciseTuning.ExerciseTuningFragment"
         android:label="fragment_exercise_tuning"
-        tools:layout="@layout/fragment_exercise_tuning" />
+        tools:layout="@layout/fragment_exercise_tuning" >
+        <action
+            android:id="@+id/exerciseTuningFragment_to_editTemplateFramgent"
+            app:destination="@id/editTemplateFramgent" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTemplateFramgent"
+        android:name="com.example.leangaingym.screens.EditTemplateFragment.EditTemplateFragment"
+        android:label="fragment_edit_template_framgent"
+        tools:layout="@layout/fragment_edit_template_framgent" />
 </navigation>
