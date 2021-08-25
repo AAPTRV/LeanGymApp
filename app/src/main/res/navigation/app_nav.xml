@@ -16,7 +16,16 @@
     </fragment>
     <fragment
         android:id="@+id/exercisesListFragment"
-        android:name="com.example.leangaingym.screens.ExercisesListFragment.ExercisesListFragment"
+        android:name="com.example.leangaingym.screens.exercisesListFragment.ExercisesListFragment"
         android:label="fragment_exercises_list"
-        tools:layout="@layout/fragment_exercises_list" />
+        tools:layout="@layout/fragment_exercises_list" >
+        <action
+            android:id="@+id/exercisesListFragment_to_exerciseTuningFragment"
+            app:destination="@id/exerciseTuningFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseTuningFragment"
+        android:name="com.example.leangaingym.screens.exerciseTuning.exerciseTuningFragment"
+        android:label="fragment_exercise_tuning"
+        tools:layout="@layout/fragment_exercise_tuning" />
 </navigation>

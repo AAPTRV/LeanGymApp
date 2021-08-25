@@ -3,4 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="exercises">Exercises</string>
+    <string name="add_an_exercise">Add an exercise</string>
+    <string name="floatingButtonAddExerciseText">+ Add an exercise</string>
+    <string name="add_new_template">+ add new template</string>
+    <string name="some_common_information_to_be_write_here">Some common information to be write here</string>
+    <string name="some_information_about_templates">some_information about templates</string>
 </resources>

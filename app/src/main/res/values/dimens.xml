@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_standard">8dp</dimen>
+    <dimen name="floatingButtonMargin">28dp</dimen>
+    <dimen name="extFloatingButtonTextSize">12sp</dimen>
 </resources>

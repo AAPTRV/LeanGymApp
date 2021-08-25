@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -35,6 +36,7 @@ android {
 
 def androidXNavigationFragmentVersion = '2.3.5'
 def androidXNavigationUIVersion = '2.3.5'
+def room_version = "2.3.0"
 
 
 dependencies {
@@ -50,4 +52,9 @@ dependencies {
 
     implementation 'androidx.navigation:navigation-fragment-ktx:' + androidXNavigationFragmentVersion
     implementation 'androidx.navigation:navigation-ui-ktx:' + androidXNavigationUIVersion
+
+    //Room
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation "androidx.room:room-rxjava3:$room_version"
 }

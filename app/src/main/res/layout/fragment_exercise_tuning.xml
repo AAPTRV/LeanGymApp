@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.exercisesListFragment.ExercisesListFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.exerciseTuning.exerciseTuningFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/TvCommonInformation"
+        android:id="@+id/TvTemplatesInformation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/some_common_information_to_be_write_here"
+        android:text="@string/some_information_about_templates"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/guidelineCenterTemplates"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.15" />
-    
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewTemplates"
         android:layout_width="match_parent"
@@ -37,17 +37,17 @@
         app:layout_constraintTop_toTopOf="@id/guidelineCenterTemplates"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/floatingButtonAddAnExercise"
-        android:text="@string/floatingButtonAddExerciseText"
-        android:textSize="@dimen/extFloatingButtonTextSize"
-        android:contentDescription="@string/add_an_exercise"
+        android:id="@+id/floatingButtonAddTemplate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/add_new_template"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="@dimen/floatingButtonMargin"
-        android:layout_marginBottom="@dimen/floatingButtonMargin"
-        app:backgroundTint="@color/teal_200" />
+        android:layout_marginBottom="@dimen/floatingButtonMargin"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
