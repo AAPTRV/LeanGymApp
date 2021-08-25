@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.leangaingym.R
+import com.example.leangaingym.app.ExercisesApp
 import com.example.leangaingym.databinding.FragmentExerciseTuningBinding
+import com.example.leangaingym.ext.dbAndDtoTransformer.convertToDto
+import com.example.leangaingym.room.DBInfo
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +30,9 @@ class ExerciseTuningFragment : Fragment() {
     private var param2: String? = null
 
     private var binding: FragmentExerciseTuningBinding? = null
+    private var mDatabase: DBInfo = ExercisesApp.mDatabase
+    private var mAdapter: TemplatesAdapter = TemplatesAdapter()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +52,17 @@ class ExerciseTuningFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding?.floatingButtonAddTemplate?.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.exerciseTuningFragment_to_editTemplateFramgent)
         }
+
+        binding?.recycleViewTemplates?.layoutManager = LinearLayoutManager(context)
+        binding?.recycleViewTemplates?.setHasFixedSize(true)
+        binding?.recycleViewTemplates?.adapter = mAdapter
+
+        mAdapter.addListOfItems(mDatabase.getTemplatesListInfoDAO().getAllTemplatesInfo().convertToDto().toMutableList())
+
     }
 
     override fun onDestroy() {

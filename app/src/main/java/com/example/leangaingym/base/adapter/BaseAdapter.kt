@@ -17,6 +17,7 @@ abstract class BaseAdapter<ItemType>: RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     open fun addListOfItems(list: MutableList<ItemType>){
+        mDataListInAdapter.clear()
         mDataListInAdapter.addAll(list)
         notifyDataSetChanged()
     }
