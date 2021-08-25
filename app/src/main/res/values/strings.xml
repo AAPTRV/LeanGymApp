@@ -8,4 +8,10 @@
     <string name="add_new_template">+ add new template</string>
     <string name="some_common_information_to_be_write_here">Some common information to be write here</string>
     <string name="some_information_about_templates">some_information about templates</string>
+    <string name="template_name">TEMPLATE NAME</string>
+    <string name="date">DATE</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="date_template">DATE</string>
+    <string name="description_template">DESCRIPTION</string>
+    <string name="exercise_name_template">EXERCISE NAME</string>
 </resources>

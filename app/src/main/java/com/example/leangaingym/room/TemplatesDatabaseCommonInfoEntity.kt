@@ -12,7 +12,7 @@ class TemplatesDatabaseCommonInfoEntity(
     val id: Int,
 
     @ColumnInfo
-    val exerciseName: String,
+    val templateName: String,
 
     @ColumnInfo
     val description: String,

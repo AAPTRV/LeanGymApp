@@ -22,41 +22,41 @@
             android:background="@drawable/rectangle_rounded">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/dumbbellIcon"
+                android:id="@+id/templateIcon"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                app:srcCompat="@drawable/dumbbell_art"
+                app:srcCompat="@drawable/chest_icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteX="15dp"
                 tools:layout_editor_absoluteY="15dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/exerciseName"
+                android:id="@+id/templateName"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:text="@string/template_name"
+                android:text="@string/exercise_name_template"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/dumbbellIcon"
-                app:layout_constraintTop_toTopOf="@id/dumbbellIcon"
+                app:layout_constraintStart_toEndOf="@id/templateIcon"
+                app:layout_constraintTop_toTopOf="@id/templateIcon"
                 android:layout_marginTop="@dimen/margin_standard"
                 />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/exerciseCommonDescription"
+                android:id="@+id/templateCommonDescription"
                 android:layout_width="wrap_content"
-                android:text="@string/description"
-                app:layout_constraintTop_toBottomOf="@id/exerciseName"
-                app:layout_constraintStart_toStartOf="@id/exerciseName"
+                android:text="@string/description_template"
+                app:layout_constraintTop_toBottomOf="@id/templateName"
+                app:layout_constraintStart_toStartOf="@id/templateName"
                 android:layout_height="wrap_content"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/exerciseDate"
+                android:id="@+id/templateDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/date"
-                app:layout_constraintTop_toBottomOf="@id/exerciseCommonDescription"
-                app:layout_constraintStart_toStartOf="@id/exerciseCommonDescription"/>
+                android:text="@string/date_template"
+                app:layout_constraintTop_toBottomOf="@id/templateCommonDescription"
+                app:layout_constraintStart_toStartOf="@id/templateCommonDescription"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
