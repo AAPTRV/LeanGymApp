@@ -1,7 +1,8 @@
-package com.example.leangaingym
+package com.example.leangaingym.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.leangaingym.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
