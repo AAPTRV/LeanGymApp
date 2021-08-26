@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import com.example.leangaingym.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.leangaingym.app.ExercisesApp
-import com.example.leangaingym.databinding.FragmentEditTemplateFramgentBinding
+import com.example.leangaingym.databinding.FragmentEditTemplateFragmentBinding
 import com.example.leangaingym.dto.TemplateExerciseUnitDto
 import com.example.leangaingym.ext.dbAndDtoTransformer.convertToEntityFieldString
 import com.example.leangaingym.room.DBInfo
@@ -24,13 +24,15 @@ private const val ARG_PARAM2 = "param2"
  * Use the [EditTemplateFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
 class EditTemplateFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
-    private var binding: FragmentEditTemplateFramgentBinding? = null
+    private var binding: FragmentEditTemplateFragmentBinding? = null
     private var mDataBase: DBInfo = ExercisesApp.mDatabase
+    private var mAdapter: ExerciseUnitAdapter = ExerciseUnitAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,12 +46,29 @@ class EditTemplateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentEditTemplateFramgentBinding.inflate(inflater, container, false)
+        binding = FragmentEditTemplateFragmentBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding?.recycleViewExerciseUnits?.layoutManager = LinearLayoutManager(context)
+        binding?.recycleViewExerciseUnits?.setHasFixedSize(true)
+        binding?.recycleViewExerciseUnits?.adapter = mAdapter
+
+        val exercisesUnits = mutableListOf<TemplateExerciseUnitDto>()
+
+        binding?.floatingButtonAddExerciseUnit?.setOnClickListener {
+            exercisesUnits.add(
+                TemplateExerciseUnitDto(
+                    mExerciseName = "Test Exercise #${exercisesUnits.size}",
+                    mNumberOfApproaches = 3,
+                    mNumberOfRepetitions = 8
+                )
+            )
+            mAdapter.repopulateAdapterData(exercisesUnits)
+        }
 
         binding?.floatingButtonFinishTemplate?.setOnClickListener {
             val idSize = mDataBase.getTemplatesListInfoDAO().getAllTemplatesInfo().size
@@ -80,41 +99,41 @@ class EditTemplateFragment : Fragment() {
             )
             exercisesList.add(mExercise)
 
-        mDataBase.getTemplatesListInfoDAO().add(
-            TemplatesDatabaseCommonInfoEntity(
-                id = idSize + 1,
-                templateName =  mTemplateName,
-                description = mDescription,
-                date = mDate,
-                exercises = exercisesList.convertToEntityFieldString()
+            mDataBase.getTemplatesListInfoDAO().add(
+                TemplatesDatabaseCommonInfoEntity(
+                    id = idSize + 1,
+                    templateName = mTemplateName,
+                    description = mDescription,
+                    date = mDate,
+                    exercises = exercisesList.convertToEntityFieldString()
+                )
             )
-        )
             Navigation.findNavController(view).navigateUp()
-    }
-}
-
-override fun onDestroy() {
-    binding = null
-    super.onDestroy()
-}
-
-companion object {
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment EditTemplateFramgent.
-     */
-    // TODO: Rename and change types and number of parameters
-    @JvmStatic
-    fun newInstance(param1: String, param2: String) =
-        EditTemplateFragment().apply {
-            arguments = Bundle().apply {
-                putString(ARG_PARAM1, param1)
-                putString(ARG_PARAM2, param2)
-            }
         }
-}
+    }
+
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
+    }
+
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment EditTemplateFramgent.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            EditTemplateFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+    }
 }

@@ -24,39 +24,51 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/unitIcon"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 app:srcCompat="@drawable/workout_icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteX="15dp"
-                tools:layout_editor_absoluteY="15dp" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/unitName"
-                android:layout_marginStart="@dimen/margin_standard"
+                android:layout_marginStart="12dp"
                 android:text="@string/exercise_name_template"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/unitIcon"
-                app:layout_constraintTop_toTopOf="@id/unitIcon"
-                android:layout_marginTop="@dimen/margin_standard" />
+                app:layout_constraintBottom_toBottomOf="@id/unitIcon"
+                 />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/unitApproaches"
                 android:layout_width="wrap_content"
-                android:text="@string/number_of_approaches"
-                app:layout_constraintTop_toBottomOf="@id/unitName"
-                app:layout_constraintStart_toStartOf="@id/unitName"
+                android:text="3"
+                android:textSize="@dimen/big_size_text"
+                android:layout_marginStart="12dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/unitName"
+                app:layout_constraintStart_toEndOf="@id/unitName"
                 android:layout_height="wrap_content"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/big_size_text"
+                android:text="x"
+                app:layout_constraintBaseline_toBaselineOf="@+id/unitApproaches"
+                app:layout_constraintStart_toEndOf="@id/unitApproaches" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/unitScope"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/number_of_repetitions"
-                app:layout_constraintTop_toBottomOf="@id/unitApproaches"
-                app:layout_constraintStart_toStartOf="@id/unitApproaches"/>
+                android:text="8"
+                android:textSize="@dimen/big_size_text"
+                app:layout_constraintStart_toEndOf="@id/tvX"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvX"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -36,5 +36,5 @@
         android:id="@+id/editTemplateFramgent"
         android:name="com.example.leangaingym.screens.EditTemplateFragment.EditTemplateFragment"
         android:label="fragment_edit_template_framgent"
-        tools:layout="@layout/fragment_edit_template_framgent" />
+        tools:layout="@layout/fragment_edit_template_fragment" />
 </navigation>
