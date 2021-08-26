@@ -3,4 +3,5 @@
     <dimen name="margin_standard">8dp</dimen>
     <dimen name="floatingButtonMargin">28dp</dimen>
     <dimen name="extFloatingButtonTextSize">12sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
 </resources>

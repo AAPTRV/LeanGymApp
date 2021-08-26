@@ -4,5 +4,6 @@ data class TemplateDescriptionDto(
     val mId: Int,
     val mTemplateName: String,
     val mDescription: String,
-    val mDate: String
+    val mDate: String,
+    val mExercises: List<TemplateExerciseUnitDto>
 )

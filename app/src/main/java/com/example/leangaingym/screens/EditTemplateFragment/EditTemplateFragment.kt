@@ -9,6 +9,8 @@ import androidx.navigation.Navigation
 import com.example.leangaingym.R
 import com.example.leangaingym.app.ExercisesApp
 import com.example.leangaingym.databinding.FragmentEditTemplateFramgentBinding
+import com.example.leangaingym.dto.TemplateExerciseUnitDto
+import com.example.leangaingym.ext.dbAndDtoTransformer.convertToEntityFieldString
 import com.example.leangaingym.room.DBInfo
 import com.example.leangaingym.room.TemplatesDatabaseCommonInfoEntity
 
@@ -70,12 +72,21 @@ class EditTemplateFragment : Fragment() {
                 "No date"
             }
 
+            val exercisesList = mutableListOf<TemplateExerciseUnitDto>()
+            val mExercise = TemplateExerciseUnitDto(
+                mExerciseName = "Exercise Test Name",
+                mNumberOfApproaches = 5,
+                mNumberOfRepetitions = 5
+            )
+            exercisesList.add(mExercise)
+
         mDataBase.getTemplatesListInfoDAO().add(
             TemplatesDatabaseCommonInfoEntity(
                 id = idSize + 1,
                 templateName =  mTemplateName,
                 description = mDescription,
-                date = mDate
+                date = mDate,
+                exercises = exercisesList.convertToEntityFieldString()
             )
         )
             Navigation.findNavController(view).navigateUp()

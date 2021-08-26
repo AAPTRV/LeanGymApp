@@ -11,7 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.075" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalEnd_templateEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.925" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineTop_templateEdit"
@@ -20,16 +27,17 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.05" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editTemplateName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/guidelineTop_templateEdit"
         android:layout_marginTop="@dimen/margin_standard"
         app:layout_constraintStart_toStartOf="@id/guidelineVertical_templateEdit"
-        android:hint="@string/template_name_templateEdit"/>
+        android:hint="@string/template_name_templateEdit"
+        android:autofillHints="templates" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editTemplateDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +46,7 @@
         app:layout_constraintStart_toStartOf="@id/editTemplateName"
         android:hint="@string/template_description_templateEdit"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editTemplateDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,6 +54,26 @@
         android:layout_marginTop="@dimen/margin_standard"
         app:layout_constraintStart_toStartOf="@id/editTemplateName"
         android:hint="@string/template_date_templateEdit"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvExercisesList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/editTemplateDate"
+        android:text="@string/exercises"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="@id/editTemplateDate"
+        android:layout_marginTop="@dimen/margin_standard"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewExerciseUnits"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_standard"
+        app:layout_constraintStart_toEndOf="@id/guidelineVertical_templateEdit"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd_templateEdit"
+        app:layout_constraintTop_toBottomOf="@id/tvExercisesList"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/floatingButtonFinishTemplate"
@@ -59,5 +87,18 @@
         android:layout_marginEnd="@dimen/floatingButtonMargin"
         android:layout_marginBottom="@dimen/floatingButtonMargin"
         app:backgroundTint="@color/teal_200" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/floatingButtonAddExerciseUnit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_standard"
+        android:contentDescription="@string/add_exercise"
+        android:text="@string/add_exercise_floating_button"
+        android:textSize="@dimen/extFloatingButtonTextSize"
+        app:backgroundTint="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@id/floatingButtonFinishTemplate"
+        app:layout_constraintEnd_toEndOf="@id/floatingButtonFinishTemplate"
+        app:layout_constraintStart_toStartOf="@id/floatingButtonFinishTemplate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

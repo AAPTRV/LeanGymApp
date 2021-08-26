@@ -18,6 +18,9 @@ class TemplatesDatabaseCommonInfoEntity(
     val description: String,
 
     @ColumnInfo
-    val date: String
+    val date: String,
+
+    @ColumnInfo
+    val exercises: String
 
 )
