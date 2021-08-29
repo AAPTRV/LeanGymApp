@@ -58,6 +58,9 @@
         android:hint="@string/exercise_name_edit"
         android:textSize="@dimen/dialog_edit_text_size"
         android:textColor="@color/white"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:singleLine="true"
         android:textColorHint="@color/white"
         android:backgroundTint="@color/white"
         app:layout_constraintBaseline_toBaselineOf="@id/dialogTvExerciseName"
@@ -67,49 +70,83 @@
         android:id="@+id/dialogTvApproaches"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dialog_text_vertical_margin_standard"
         android:text="@string/approaches"
         android:textSize="@dimen/dialog_edit_text_size"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/leftVerticalGuideline"
         app:layout_constraintTop_toBottomOf="@id/dialogTvExerciseName" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/dialogEtApproaches"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialogApproachesValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/number_of_approaches_edit"
-        android:textSize="@dimen/dialog_edit_text_size"
-        android:inputType="number"
         android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBaseline_toBaselineOf="@id/dialogTvApproaches"
-        app:layout_constraintStart_toStartOf="@id/dialogEtExerciseName" />
+        android:text="3"
+        app:layout_constraintStart_toEndOf="@id/dialogTvApproaches"
+        app:layout_constraintEnd_toEndOf="@id/rightVerticalGuideline"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBaseline_toBaselineOf="@id/dialogTvApproaches"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialogIncreaseApproachesButton"
+        android:layout_width="@dimen/dialog_increase_button_width"
+        android:layout_height="@dimen/dialog_increase_button_height"
+        android:text="@string/dialog_increase_button"
+        android:textSize="@dimen/text_size_medium"
+        android:layout_marginEnd="@dimen/dialog_buttons_low_margin"
+        app:layout_constraintEnd_toStartOf="@id/dialogApproachesValue"
+        app:layout_constraintBaseline_toBaselineOf="@id/dialogApproachesValue"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialogDecreaseApproachesButton"
+        android:layout_width="@dimen/dialog_increase_button_width"
+        android:layout_height="@dimen/dialog_increase_button_height"
+        android:text="@string/dialog_decrease_button"
+        android:textSize="@dimen/text_size_medium"
+        android:layout_marginStart="@dimen/dialog_buttons_low_margin"
+        app:layout_constraintStart_toEndOf="@id/dialogApproachesValue"
+        app:layout_constraintBaseline_toBaselineOf="@id/dialogApproachesValue"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialogRepetitionsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="8"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@id/dialogApproachesValue"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBaseline_toBaselineOf="@id/dialogTvRepetitions"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialogIncreaseRepetitionsButton"
+        android:layout_width="@dimen/dialog_increase_button_width"
+        android:layout_height="@dimen/dialog_increase_button_height"
+        android:text="@string/dialog_increase_button"
+        android:textSize="@dimen/text_size_medium"
+        android:layout_marginEnd="@dimen/dialog_buttons_low_margin"
+        app:layout_constraintEnd_toStartOf="@id/dialogRepetitionsValue"
+        app:layout_constraintBaseline_toBaselineOf="@id/dialogRepetitionsValue"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialogDecreaseRepetitionsButton"
+        android:layout_width="@dimen/dialog_increase_button_width"
+        android:layout_height="@dimen/dialog_increase_button_height"
+        android:text="@string/dialog_decrease_button"
+        android:textSize="@dimen/text_size_medium"
+        android:layout_marginStart="@dimen/dialog_buttons_low_margin"
+        app:layout_constraintStart_toEndOf="@id/dialogRepetitionsValue"
+        app:layout_constraintBaseline_toBaselineOf="@id/dialogRepetitionsValue"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/dialogTvRepetitions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dialog_text_vertical_margin_standard"
         android:text="@string/repetitions"
         android:textSize="@dimen/dialog_edit_text_size"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/leftVerticalGuideline"
         app:layout_constraintTop_toBottomOf="@id/dialogTvApproaches" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/dialogEtRepetitions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/number_of_repetitions_edit"
-        android:textSize="@dimen/dialog_edit_text_size"
-        android:inputType="number"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBaseline_toBaselineOf="@id/dialogTvRepetitions"
-        app:layout_constraintStart_toStartOf="@id/dialogEtExerciseName" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dialogLeftButton"

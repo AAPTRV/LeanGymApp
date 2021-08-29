@@ -7,4 +7,8 @@
     <dimen name="big_size_text">28sp</dimen>
     <dimen name="dialog_title_text_size">24sp</dimen>
     <dimen name="dialog_edit_text_size">18sp</dimen>
+    <dimen name="dialog_increase_button_width">35dp</dimen>
+    <dimen name="dialog_increase_button_height">45dp</dimen>
+    <dimen name="dialog_buttons_low_margin">4dp</dimen>
+    <dimen name="dialog_text_vertical_margin_standard">16dp</dimen>
 </resources>

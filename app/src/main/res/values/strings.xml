@@ -33,4 +33,6 @@
     <string name="dialog_left_button_text">ADD EXERCISE</string>
     <string name="dialog_right_button_text">CANCEL</string>
     <string name="exercises_list_is_empty">Exercises list is empty</string>
+    <string name="dialog_increase_button">+</string>
+    <string name="dialog_decrease_button">-</string>
 </resources>
