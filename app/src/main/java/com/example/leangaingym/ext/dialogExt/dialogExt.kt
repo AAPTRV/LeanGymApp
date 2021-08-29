@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
 import android.widget.Button
+import android.widget.EditText
 import android.widget.FrameLayout
 import com.example.leangaingym.R
+import com.example.leangaingym.dto.TemplateExerciseUnitDto
 
 val DIALOG_WIDTH_DELTA_7: Float = 0.95F
 
@@ -45,14 +47,27 @@ private fun setContentView(dialog: Dialog, contentView: View) {
 
 fun Activity.showDialogForExerciseResult(
 //    leftButtonTextId: Int,
-//    leftClickListener: View.OnClickListener?,
+    leftOnClickEvent: (TemplateExerciseUnitDto) -> Unit,
 //    rightButtonTextId: Int,
 //    rightClickListener: View.OnClickListener?
 ) : Dialog{
     val (dialog, contentView) = initExerciseDialogTwoButtonsContent()
 
+    val mEtExerciseName: EditText = contentView.findViewById(R.id.dialogEtExerciseName)
+    val mEtNumberOfApproaches: EditText = contentView.findViewById(R.id.dialogEtApproaches)
+    val mEtNumberOfRepetitions: EditText = contentView.findViewById(R.id.dialogEtRepetitions)
+
     val btnLeft: Button = contentView.findViewById(R.id.dialogLeftButton)
-    btnLeft.setOnClickListener { dialog.dismiss() }
+    btnLeft.setOnClickListener {
+        leftOnClickEvent.invoke(
+            TemplateExerciseUnitDto(
+                mExerciseName = mEtExerciseName.text.toString(),
+                mNumberOfApproaches = mEtNumberOfApproaches.text.toString().toInt(),
+                mNumberOfRepetitions = mEtNumberOfRepetitions.text.toString().toInt()
+            )
+        )
+        dialog.dismiss() }
+
     val btnRight: Button = contentView.findViewById(R.id.dialogRightButton)
     btnRight.setOnClickListener { dialog.dismiss() }
 

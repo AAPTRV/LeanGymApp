@@ -2,6 +2,7 @@ package com.example.leangaingym.screens.EditTemplateFragment
 
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -65,17 +66,22 @@ class EditTemplateFragment : Fragment() {
 
         val exercisesUnits = mutableListOf<TemplateExerciseUnitDto>()
 
+
+
         binding?.floatingButtonAddExerciseUnit?.setOnClickListener {
-            activity?.showDialogForExerciseResult()
-            exercisesUnits.add(
-                TemplateExerciseUnitDto(
-                    mExerciseName = "Test Exercise #${exercisesUnits.size}",
-                    mNumberOfApproaches = 3,
-                    mNumberOfRepetitions = 8
-                )
-            )
-            mAdapter.repopulateAdapterData(exercisesUnits)
-            finishTemplateButtonSetEnable(true)
+            val onLeftButtonClick = { it: TemplateExerciseUnitDto ->
+                exercisesUnits.add(it)
+                mAdapter.repopulateAdapterData(exercisesUnits)
+                finishTemplateButtonSetEnable(true)
+            }
+            activity?.showDialogForExerciseResult(onLeftButtonClick)
+//            exercisesUnits.add(
+//                TemplateExerciseUnitDto(
+//                    mExerciseName = "Test Exercise #${exercisesUnits.size}",
+//                    mNumberOfApproaches = 3,
+//                    mNumberOfRepetitions = 8
+//                )
+//            )
         }
 
         binding?.floatingButtonFinishTemplate?.setOnClickListener {
@@ -126,8 +132,8 @@ class EditTemplateFragment : Fragment() {
         super.onDestroy()
     }
 
-    private fun finishTemplateButtonSetEnable(isEnabled: Boolean){
-        if(isEnabled){
+    private fun finishTemplateButtonSetEnable(isEnabled: Boolean) {
+        if (isEnabled) {
             binding?.floatingButtonFinishTemplate?.isEnabled = true
             binding?.floatingButtonFinishTemplate?.backgroundTintList = context?.let {
                 ContextCompat.getColor(
