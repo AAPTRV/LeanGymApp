@@ -1,12 +1,15 @@
 package com.example.leangaingym.screens.EditTemplateFragment
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.leangaingym.R
 import com.example.leangaingym.app.ExercisesApp
 import com.example.leangaingym.databinding.FragmentEditTemplateFragmentBinding
 import com.example.leangaingym.dto.TemplateExerciseUnitDto
@@ -57,6 +60,8 @@ class EditTemplateFragment : Fragment() {
         binding?.recycleViewExerciseUnits?.setHasFixedSize(true)
         binding?.recycleViewExerciseUnits?.adapter = mAdapter
 
+        finishTemplateButtonSetEnable(false)
+
         val exercisesUnits = mutableListOf<TemplateExerciseUnitDto>()
 
         binding?.floatingButtonAddExerciseUnit?.setOnClickListener {
@@ -68,7 +73,10 @@ class EditTemplateFragment : Fragment() {
                 )
             )
             mAdapter.repopulateAdapterData(exercisesUnits)
+            finishTemplateButtonSetEnable(true)
         }
+
+
 
         binding?.floatingButtonFinishTemplate?.setOnClickListener {
             val idSize = mDataBase.getTemplatesListInfoDAO().getAllTemplatesInfo().size
@@ -110,11 +118,30 @@ class EditTemplateFragment : Fragment() {
             )
             Navigation.findNavController(view).navigateUp()
         }
+
     }
 
     override fun onDestroy() {
         binding = null
         super.onDestroy()
+    }
+
+    private fun finishTemplateButtonSetEnable(isEnabled: Boolean){
+        if(isEnabled){
+            binding?.floatingButtonFinishTemplate?.isEnabled = true
+            binding?.floatingButtonFinishTemplate?.backgroundTintList = context?.let {
+                ContextCompat.getColor(
+                    it, R.color.teal_200
+                )
+            }?.let { ColorStateList.valueOf(it) }
+        } else {
+            binding?.floatingButtonFinishTemplate?.isEnabled = false
+            binding?.floatingButtonFinishTemplate?.backgroundTintList = context?.let {
+                ContextCompat.getColor(
+                    it, R.color.grey_for_floating_button
+                )
+            }?.let { ColorStateList.valueOf(it) }
+        }
     }
 
     companion object {

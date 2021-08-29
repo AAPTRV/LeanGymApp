@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rectangle_rounded_grey">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftVerticalGuideline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightVerticalGuideline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topVerticalGuideline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/exerciseDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:text="@string/exercise_tuning"
+        android:textSize="@dimen/dialog_title_text_size"
+        app:layout_constraintEnd_toEndOf="@id/rightVerticalGuideline"
+        app:layout_constraintStart_toStartOf="@id/leftVerticalGuideline"
+        app:layout_constraintTop_toTopOf="@id/topVerticalGuideline" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialogTvExerciseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/exercise_name"
+        android:textSize="@dimen/dialog_edit_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/leftVerticalGuideline"
+        app:layout_constraintTop_toBottomOf="@id/exerciseDialogTitle" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/dialogEtExerciseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:hint="@string/exercise_name_edit"
+        android:textSize="@dimen/dialog_edit_text_size"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@id/dialogTvExerciseName"
+        app:layout_constraintStart_toEndOf="@id/dialogTvExerciseName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialogTvApproaches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/approaches"
+        android:textSize="@dimen/dialog_edit_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/leftVerticalGuideline"
+        app:layout_constraintTop_toBottomOf="@id/dialogTvExerciseName" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/dialogEtApproaches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/number_of_approaches_edit"
+        android:textSize="@dimen/dialog_edit_text_size"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@id/dialogTvApproaches"
+        app:layout_constraintStart_toStartOf="@id/dialogEtExerciseName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialogTvRepetitions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/repetitions"
+        android:textSize="@dimen/dialog_edit_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/leftVerticalGuideline"
+        app:layout_constraintTop_toBottomOf="@id/dialogTvApproaches" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/dialogEtRepetitions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/number_of_repetitions_edit"
+        android:textSize="@dimen/dialog_edit_text_size"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@id/dialogTvRepetitions"
+        app:layout_constraintStart_toStartOf="@id/dialogEtExerciseName" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialogLeftButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/dialog_left_button_text"
+        app:layout_constraintEnd_toStartOf="@+id/dialogRightButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogTvRepetitions" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialogRightButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_right_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dialogLeftButton"
+        app:layout_constraintTop_toTopOf="@id/dialogLeftButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

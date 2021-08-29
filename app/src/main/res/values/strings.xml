@@ -23,4 +23,13 @@
     <string name="number_of_approaches">number of approaches</string>
     <string name="add_exercise">+ ADD EXERCISE</string>
     <string name="add_exercise_floating_button">+ add exercise</string>
+    <string name="exercise_tuning">EXERCISE TUNING</string>
+    <string name="exercise_name">Exercise name:</string>
+    <string name="exercise_name_edit">Exercise name</string>
+    <string name="approaches">Approaches:</string>
+    <string name="number_of_approaches_edit">Number Of Approaches</string>
+    <string name="repetitions">Repetitions:</string>
+    <string name="number_of_repetitions_edit">Number Of Repetitions</string>
+    <string name="dialog_left_button_text">ADD EXERCISE</string>
+    <string name="dialog_right_button_text">CANCEL</string>
 </resources>
