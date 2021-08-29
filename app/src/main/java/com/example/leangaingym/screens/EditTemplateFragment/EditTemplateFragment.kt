@@ -14,6 +14,7 @@ import com.example.leangaingym.app.ExercisesApp
 import com.example.leangaingym.databinding.FragmentEditTemplateFragmentBinding
 import com.example.leangaingym.dto.TemplateExerciseUnitDto
 import com.example.leangaingym.ext.dbAndDtoTransformer.convertToEntityFieldString
+import com.example.leangaingym.ext.dialogExt.showDialogForExerciseResult
 import com.example.leangaingym.room.DBInfo
 import com.example.leangaingym.room.TemplatesDatabaseCommonInfoEntity
 
@@ -65,6 +66,7 @@ class EditTemplateFragment : Fragment() {
         val exercisesUnits = mutableListOf<TemplateExerciseUnitDto>()
 
         binding?.floatingButtonAddExerciseUnit?.setOnClickListener {
+            activity?.showDialogForExerciseResult()
             exercisesUnits.add(
                 TemplateExerciseUnitDto(
                     mExerciseName = "Test Exercise #${exercisesUnits.size}",
@@ -75,8 +77,6 @@ class EditTemplateFragment : Fragment() {
             mAdapter.repopulateAdapterData(exercisesUnits)
             finishTemplateButtonSetEnable(true)
         }
-
-
 
         binding?.floatingButtonFinishTemplate?.setOnClickListener {
             val idSize = mDataBase.getTemplatesListInfoDAO().getAllTemplatesInfo().size
