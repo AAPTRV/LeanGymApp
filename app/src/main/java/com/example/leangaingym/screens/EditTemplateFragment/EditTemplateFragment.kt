@@ -2,7 +2,6 @@ package com.example.leangaingym.screens.EditTemplateFragment
 
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -66,25 +65,18 @@ class EditTemplateFragment : Fragment() {
 
         val exercisesUnits = mutableListOf<TemplateExerciseUnitDto>()
 
-
-
         binding?.floatingButtonAddExerciseUnit?.setOnClickListener {
             val onLeftButtonClick = { it: TemplateExerciseUnitDto ->
                 exercisesUnits.add(it)
                 mAdapter.repopulateAdapterData(exercisesUnits)
+                binding?.tvExercisesListIsEmptyNotification?.visibility = View.GONE
                 finishTemplateButtonSetEnable(true)
             }
             activity?.showDialogForExerciseResult(onLeftButtonClick)
-//            exercisesUnits.add(
-//                TemplateExerciseUnitDto(
-//                    mExerciseName = "Test Exercise #${exercisesUnits.size}",
-//                    mNumberOfApproaches = 3,
-//                    mNumberOfRepetitions = 8
-//                )
-//            )
         }
 
         binding?.floatingButtonFinishTemplate?.setOnClickListener {
+
             val idSize = mDataBase.getTemplatesListInfoDAO().getAllTemplatesInfo().size
 
             val mTemplateName = if (binding?.editTemplateName?.text.toString().isNotEmpty()) {
@@ -111,6 +103,7 @@ class EditTemplateFragment : Fragment() {
                 mNumberOfApproaches = 5,
                 mNumberOfRepetitions = 5
             )
+
             exercisesList.add(mExercise)
 
             mDataBase.getTemplatesListInfoDAO().add(
@@ -124,7 +117,6 @@ class EditTemplateFragment : Fragment() {
             )
             Navigation.findNavController(view).navigateUp()
         }
-
     }
 
     override fun onDestroy() {

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundGrey"
     tools:context=".screens.EditTemplateFragment.EditTemplateFragment">
 
     <androidx.constraintlayout.widget.Guideline
@@ -11,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.075" />
+        app:layout_constraintGuide_percent="0.035" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineVerticalEnd_templateEdit"
@@ -31,6 +32,9 @@
         android:id="@+id/editTemplateName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="@id/guidelineTop_templateEdit"
         android:layout_marginTop="@dimen/margin_standard"
         app:layout_constraintStart_toStartOf="@id/guidelineVertical_templateEdit"
@@ -41,6 +45,9 @@
         android:id="@+id/editTemplateDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/editTemplateName"
         android:layout_marginTop="@dimen/margin_standard"
         app:layout_constraintStart_toStartOf="@id/editTemplateName"
@@ -50,6 +57,9 @@
         android:id="@+id/editTemplateDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/editTemplateDescription"
         android:layout_marginTop="@dimen/margin_standard"
         app:layout_constraintStart_toStartOf="@id/editTemplateName"
@@ -59,10 +69,27 @@
         android:id="@+id/tvExercisesList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/editTemplateDate"
         android:text="@string/exercises"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintStart_toStartOf="@id/editTemplateDate"
+        android:layout_marginTop="@dimen/margin_standard"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvExercisesListIsEmptyNotification"
+        android:text="@string/exercises_list_is_empty"
+        android:textSize="@dimen/text_size_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvExercisesList"
         android:layout_marginTop="@dimen/margin_standard"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -70,8 +97,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_standard"
-        app:layout_constraintStart_toEndOf="@id/guidelineVertical_templateEdit"
-        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd_templateEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvExercisesList"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
