@@ -61,7 +61,7 @@
         android:imeOptions="actionDone"
         android:inputType="text"
         android:singleLine="true"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/white_transparent"
         android:backgroundTint="@color/white"
         app:layout_constraintBaseline_toBaselineOf="@id/dialogTvExerciseName"
         app:layout_constraintStart_toEndOf="@id/dialogTvExerciseName" />
@@ -84,7 +84,7 @@
         android:textColor="@color/white"
         android:text="3"
         app:layout_constraintStart_toEndOf="@id/dialogTvApproaches"
-        app:layout_constraintEnd_toEndOf="@id/rightVerticalGuideline"
+        app:layout_constraintStart_toStartOf="@+id/dialogEtExerciseName"
         android:textAlignment="center"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintBaseline_toBaselineOf="@id/dialogTvApproaches"/>
@@ -94,8 +94,9 @@
         android:layout_height="@dimen/dialog_increase_button_height"
         android:text="@string/dialog_increase_button"
         android:textSize="@dimen/text_size_medium"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="@dimen/dialog_buttons_low_margin"
-        app:layout_constraintEnd_toStartOf="@id/dialogApproachesValue"
+        app:layout_constraintEnd_toStartOf="@id/dialogDecreaseApproachesButton"
         app:layout_constraintBaseline_toBaselineOf="@id/dialogApproachesValue"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dialogDecreaseApproachesButton"
@@ -104,7 +105,7 @@
         android:text="@string/dialog_decrease_button"
         android:textSize="@dimen/text_size_medium"
         android:layout_marginStart="@dimen/dialog_buttons_low_margin"
-        app:layout_constraintStart_toEndOf="@id/dialogApproachesValue"
+        app:layout_constraintEnd_toStartOf="@id/rightVerticalGuideline"
         app:layout_constraintBaseline_toBaselineOf="@id/dialogApproachesValue"/>
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -125,7 +126,7 @@
         android:text="@string/dialog_increase_button"
         android:textSize="@dimen/text_size_medium"
         android:layout_marginEnd="@dimen/dialog_buttons_low_margin"
-        app:layout_constraintEnd_toStartOf="@id/dialogRepetitionsValue"
+        app:layout_constraintEnd_toStartOf="@id/dialogDecreaseRepetitionsButton"
         app:layout_constraintBaseline_toBaselineOf="@id/dialogRepetitionsValue"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dialogDecreaseRepetitionsButton"
@@ -134,7 +135,7 @@
         android:text="@string/dialog_decrease_button"
         android:textSize="@dimen/text_size_medium"
         android:layout_marginStart="@dimen/dialog_buttons_low_margin"
-        app:layout_constraintStart_toEndOf="@id/dialogRepetitionsValue"
+        app:layout_constraintEnd_toStartOf="@id/rightVerticalGuideline"
         app:layout_constraintBaseline_toBaselineOf="@id/dialogRepetitionsValue"/>
 
     <androidx.appcompat.widget.AppCompatTextView

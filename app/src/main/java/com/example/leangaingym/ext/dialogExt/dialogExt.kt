@@ -10,10 +10,7 @@ import android.view.View
 import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.FrameLayout
-import android.widget.TextView
+import android.widget.*
 import com.example.leangaingym.R
 import com.example.leangaingym.dto.TemplateExerciseUnitDto
 
@@ -105,14 +102,20 @@ fun Activity.showDialogForExerciseResult(
 
     val btnLeft: Button = contentView.findViewById(R.id.dialogLeftButton)
     btnLeft.setOnClickListener {
-        leftOnClickEvent.invoke(
-            TemplateExerciseUnitDto(
-                mExerciseName = mEtExerciseName.text.toString(),
-                mNumberOfApproaches = mTvApproachesValue.text.toString().toInt(),
-                mNumberOfRepetitions = mTvRepetitionsValue.text.toString().toInt()
+        if(mEtExerciseName.text.isEmpty()){
+            Toast.makeText(this, "Exercise name is empty", Toast.LENGTH_SHORT).show()
+            mEtExerciseName.requestFocus()
+            // TODO: 29.08.2021 SHOW KEY BOARD!
+        } else {
+            leftOnClickEvent.invoke(
+                TemplateExerciseUnitDto(
+                    mExerciseName = mEtExerciseName.text.toString(),
+                    mNumberOfApproaches = mTvApproachesValue.text.toString().toInt(),
+                    mNumberOfRepetitions = mTvRepetitionsValue.text.toString().toInt()
+                )
             )
-        )
-        dialog.dismiss()
+            dialog.dismiss()
+        }
     }
 
     val btnRight: Button = contentView.findViewById(R.id.dialogRightButton)
