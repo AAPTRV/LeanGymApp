@@ -1,4 +1,4 @@
-package com.example.leangaingym.screens.EditTemplateFragment
+package com.example.leangaingym.screens.templateInfoFragment
 
 import androidx.lifecycle.SavedStateHandle
 import com.example.leangaingym.base.mvvm.BaseViewModel
@@ -6,14 +6,17 @@ import com.example.leangaingym.repository.db.DatabaseExercisesCommonInfoReposito
 import com.example.leangaingym.repository.db.DatabaseTemplatesCommonInfoRepository
 import com.example.leangaingym.room.TemplatesDatabaseCommonInfoEntity
 
-class EditTemplateViewModel(
+class TemplateViewModel (
     savedStateHandle: SavedStateHandle,
     private val mDatabaseExercisesCommonInfoRepository: DatabaseExercisesCommonInfoRepository,
     private val mDatabaseTemplatesCommonInfoRepository: DatabaseTemplatesCommonInfoRepository
 ) : BaseViewModel(savedStateHandle) {
 
-    fun addTemplateToDatabase(template: TemplatesDatabaseCommonInfoEntity){
-        mDatabaseTemplatesCommonInfoRepository.add(template)
-    }
+//    fun addTemplateToDatabase(template: TemplatesDatabaseCommonInfoEntity){
+//        mDatabaseTemplatesCommonInfoRepository.add(template)
+//    }
 
+    fun getTemplateFromDatabase(templateId: Int){
+        mDatabaseTemplatesCommonInfoRepository.getTemplateById(templateId)
+    }
 }

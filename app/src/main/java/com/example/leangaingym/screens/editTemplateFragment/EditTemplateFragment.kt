@@ -1,4 +1,4 @@
-package com.example.leangaingym.screens.EditTemplateFragment
+package com.example.leangaingym.screens.editTemplateFragment
 
 import android.content.res.ColorStateList
 import android.os.Bundle

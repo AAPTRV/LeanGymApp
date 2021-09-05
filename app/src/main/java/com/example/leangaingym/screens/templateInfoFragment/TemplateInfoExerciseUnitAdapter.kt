@@ -1,4 +1,4 @@
-package com.example.leangaingym.screens.EditTemplateFragment
+package com.example.leangaingym.screens.templateInfoFragment
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +7,10 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.leangaingym.R
 import com.example.leangaingym.base.adapter.BaseAdapter
+import com.example.leangaingym.dto.TemplateDescriptionDto
 import com.example.leangaingym.dto.TemplateExerciseUnitDto
 
-class ExerciseUnitAdapter : BaseAdapter<TemplateExerciseUnitDto>() {
+class TemplateInfoExerciseUnitAdapter: BaseAdapter<TemplateDescriptionDto>() {
 
     inner class ExerciseUnitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvUnitName: AppCompatTextView = itemView.findViewById(R.id.unitName)
@@ -25,17 +26,16 @@ class ExerciseUnitAdapter : BaseAdapter<TemplateExerciseUnitDto>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ExerciseUnitViewHolder){
-            val exerciseUnit = mDataListInAdapter[position]
+            val exerciseUnit = mDataListInAdapter[0].mExercises[position]
             holder.tvUnitName.text = exerciseUnit.mExerciseName
             holder.tvNumberOfApproaches.text = exerciseUnit.mNumberOfApproaches.toString()
             holder.tvNumberOfRepetitions.text = exerciseUnit.mNumberOfRepetitions.toString()
         }
     }
 
-    fun repopulateAdapterData(exercisesList: List<TemplateExerciseUnitDto>){
+    fun repopulateAdapterData(templateDescriptionDto: TemplateDescriptionDto){
         mDataListInAdapter.clear()
-        mDataListInAdapter.addAll(exercisesList)
+        mDataListInAdapter.add(templateDescriptionDto)
         notifyDataSetChanged()
     }
-
 }

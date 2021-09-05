@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backgroundGrey"
-    tools:context=".screens.EditTemplateFragment.EditTemplateFragment">
+    tools:context=".screens.editTemplateFragment.EditTemplateFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineVertical_templateEdit"

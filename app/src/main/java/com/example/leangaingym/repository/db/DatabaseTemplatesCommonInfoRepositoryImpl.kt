@@ -19,4 +19,8 @@ class DatabaseTemplatesCommonInfoRepositoryImpl(private val db: DBInfo = Exercis
         return db.getTemplatesListInfoDAO().delete(entity)
     }
 
+    override fun getTemplateById(id: Int): TemplatesDatabaseCommonInfoEntity {
+        return db.getTemplatesListInfoDAO().getTemplateById(id)
+    }
+
 }

@@ -31,10 +31,18 @@
         <action
             android:id="@+id/exerciseTuningFragment_to_editTemplateFramgent"
             app:destination="@id/editTemplateFramgent" />
+        <action
+            android:id="@+id/action_exerciseTuningFragment_to_templateInfoFragment"
+            app:destination="@id/templateInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/editTemplateFramgent"
-        android:name="com.example.leangaingym.screens.EditTemplateFragment.EditTemplateFragment"
+        android:name="com.example.leangaingym.screens.editTemplateFragment.EditTemplateFragment"
         android:label="fragment_edit_template_framgent"
         tools:layout="@layout/fragment_edit_template_fragment" />
+    <fragment
+        android:id="@+id/templateInfoFragment"
+        android:name="com.example.leangaingym.screens.templateInfoFragment.TemplateInfoFragment"
+        android:label="fragment_template_info"
+        tools:layout="@layout/fragment_template_info" />
 </navigation>

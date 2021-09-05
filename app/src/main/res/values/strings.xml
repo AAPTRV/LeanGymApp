@@ -35,4 +35,5 @@
     <string name="exercises_list_is_empty">Exercises list is empty</string>
     <string name="dialog_increase_button">+</string>
     <string name="dialog_decrease_button">-</string>
+    <string name="template_info">Template info</string>
 </resources>
