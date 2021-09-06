@@ -5,12 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.leangaingym.R
 import com.example.leangaingym.databinding.FragmentTemplateInfoBinding
 import com.example.leangaingym.utils.TEMPLATE_ID
 import org.koin.androidx.scope.ScopeFragment
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import kotlin.properties.Delegates
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,7 +30,7 @@ class TemplateInfoFragment : ScopeFragment() {
     private var binding: FragmentTemplateInfoBinding? = null
     private var mAdapter: TemplateInfoExerciseUnitAdapter = TemplateInfoExerciseUnitAdapter()
     private var mTemplateId by Delegates.notNull<Int>()
-//    private var mViewModel = TemplateViewModel(SavedStateHandle(), mDatabaseExercisesCommonInfoRepository = Data)
+    private val mInfoViewModel: TemplateInfoViewModel by stateViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,16 +55,9 @@ class TemplateInfoFragment : ScopeFragment() {
         binding?.recycleViewTemplateInfo?.layoutManager = LinearLayoutManager(context)
         binding?.recycleViewTemplateInfo?.setHasFixedSize(true)
         binding?.recycleViewTemplateInfo?.adapter = mAdapter
+        mTemplateId = arguments?.getInt(TEMPLATE_ID, 0) ?: 0
 
-        mAdapter.setItemClick {
-            val bundle = Bundle()
-            bundle.putString(TEMPLATE_ID, it.mId.toString())
-            findNavController().navigate(
-                R.id.action_exerciseTuningFragment_to_templateInfoFragment, bundle
-            )
-        }
-
-//        mAdapter.repopulateAdapterData()
+        mAdapter.repopulateAdapterData(mInfoViewModel.getTemplateFromDatabase(mTemplateId))
 
     }
 

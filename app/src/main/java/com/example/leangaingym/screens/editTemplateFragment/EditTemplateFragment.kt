@@ -99,13 +99,13 @@ class EditTemplateFragment : ScopeFragment() {
             }
 
             val exercisesList = mutableListOf<TemplateExerciseUnitDto>()
-            val mExercise = TemplateExerciseUnitDto(
-                mExerciseName = "Exercise Test Name",
-                mNumberOfApproaches = 5,
-                mNumberOfRepetitions = 5
-            )
+//            val mExercise = TemplateExerciseUnitDto(
+//                mExerciseName = "Exercise Test Name",
+//                mNumberOfApproaches = 5,
+//                mNumberOfRepetitions = 5
+//            )
 
-            exercisesList.add(mExercise)
+            exercisesList.addAll(exercisesUnits)
 
             mViewModel.addTemplateToDatabase(
                 TemplatesDatabaseCommonInfoEntity(

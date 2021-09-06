@@ -22,12 +22,20 @@ class TemplatesAdapter: BaseAdapter<TemplateDescriptionDto>() {
         return TemplatesViewHolder(v)
     }
 
+    override fun addListOfItems(list: MutableList<TemplateDescriptionDto>){
+        mDataListInAdapter.clear()
+        mDataListInAdapter.addAll(list.sortedByDescending { it.mId })
+        notifyDataSetChanged()
+    }
+    
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(holder is TemplatesViewHolder){
             val template = mDataListInAdapter[position]
             holder.tvTemplateName.text = template.mTemplateName
             holder.tvDescription.text = template.mDescription
             holder.tvDate.text = template.mDate
+            holder.itemView.setOnClickListener { mOnItemClickListener?.invoke(mDataListInAdapter[position]) }
         }
     }
 }

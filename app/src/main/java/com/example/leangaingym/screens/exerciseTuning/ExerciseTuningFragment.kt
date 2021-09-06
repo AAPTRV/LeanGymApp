@@ -1,14 +1,17 @@
 package com.example.leangaingym.screens.exerciseTuning
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.leangaingym.R
 import com.example.leangaingym.databinding.FragmentExerciseTuningBinding
+import com.example.leangaingym.utils.TEMPLATE_ID
 import org.koin.androidx.scope.ScopeFragment
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
@@ -61,6 +64,14 @@ class ExerciseTuningFragment : ScopeFragment() {
 
         mAdapter.addListOfItems(mViewModel.getAllTemplatesFromDatabase().toMutableList())
 
+        mAdapter.setItemClick {
+            val bundle = Bundle()
+            bundle.putInt(TEMPLATE_ID, it.mId)
+            Log.e("HZ", "SOME TEMPLATE CLICKED")
+            findNavController().navigate(
+                R.id.action_exerciseTuningFragment_to_templateInfoFragment, bundle
+            )
+        }
     }
 
     override fun onDestroy() {

@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.leangaingym.di.appModule
 import com.example.leangaingym.di.editTemplateModule
 import com.example.leangaingym.di.exerciseTuningModule
+import com.example.leangaingym.di.templateInfoModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -23,7 +24,7 @@ class ExercisesApp: Application() {
             // inject Android context
             androidContext(this@ExercisesApp)
             // use modules
-            modules(appModule, editTemplateModule, exerciseTuningModule)
+            modules(appModule, editTemplateModule, exerciseTuningModule, templateInfoModule)
         }
     }
 }

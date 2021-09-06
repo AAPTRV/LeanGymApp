@@ -1,5 +1,6 @@
 package com.example.leangaingym.screens.templateInfoFragment
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,8 +25,11 @@ class TemplateInfoExerciseUnitAdapter: BaseAdapter<TemplateDescriptionDto>() {
         return ExerciseUnitViewHolder(v)
     }
 
+    override fun getItemCount(): Int = mDataListInAdapter[0].mExercises.size
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ExerciseUnitViewHolder){
+            Log.e("HZ", "EXERCISES SIZE = ${mDataListInAdapter[0].mExercises.size}")
             val exerciseUnit = mDataListInAdapter[0].mExercises[position]
             holder.tvUnitName.text = exerciseUnit.mExerciseName
             holder.tvNumberOfApproaches.text = exerciseUnit.mNumberOfApproaches.toString()
