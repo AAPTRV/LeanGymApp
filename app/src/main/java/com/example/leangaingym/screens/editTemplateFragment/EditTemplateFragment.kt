@@ -10,13 +10,13 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.leangaingym.R
-import com.example.leangaingym.app.ExercisesApp
 import com.example.leangaingym.databinding.FragmentEditTemplateFragmentBinding
 import com.example.leangaingym.dto.TemplateExerciseUnitDto
 import com.example.leangaingym.ext.dbAndDtoTransformer.convertToEntityFieldString
 import com.example.leangaingym.ext.dialogExt.showDialogForExerciseResult
-import com.example.leangaingym.room.DBInfo
 import com.example.leangaingym.room.TemplatesDatabaseCommonInfoEntity
+import org.koin.androidx.scope.ScopeFragment
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,14 +29,15 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 
-class EditTemplateFragment : Fragment() {
+class EditTemplateFragment : ScopeFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
     private var binding: FragmentEditTemplateFragmentBinding? = null
-    private var mDataBase: DBInfo = ExercisesApp.mDatabase
+//    private var mDataBase: DBInfo = ExercisesApp.mDatabase
     private var mAdapter: ExerciseUnitAdapter = ExerciseUnitAdapter()
+    private val mViewModel: EditTemplateViewModel by stateViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +78,7 @@ class EditTemplateFragment : Fragment() {
 
         binding?.floatingButtonFinishTemplate?.setOnClickListener {
 
-            val idSize = mDataBase.getTemplatesListInfoDAO().getAllTemplatesInfo().size
+            val idSize = mViewModel.getAllTemplatesFromDataBaseCount()
 
             val mTemplateName = if (binding?.editTemplateName?.text.toString().isNotEmpty()) {
                 binding?.editTemplateName?.text.toString()
@@ -106,7 +107,7 @@ class EditTemplateFragment : Fragment() {
 
             exercisesList.add(mExercise)
 
-            mDataBase.getTemplatesListInfoDAO().add(
+            mViewModel.addTemplateToDatabase(
                 TemplatesDatabaseCommonInfoEntity(
                     id = idSize + 1,
                     templateName = mTemplateName,

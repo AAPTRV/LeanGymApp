@@ -1,10 +1,9 @@
 package com.example.leangaingym.repository.db
 
-import com.example.leangaingym.app.ExercisesApp
 import com.example.leangaingym.room.DBInfo
 import com.example.leangaingym.room.TemplatesDatabaseCommonInfoEntity
 
-class DatabaseTemplatesCommonInfoRepositoryImpl(private val db: DBInfo = ExercisesApp.mDatabase) :
+class DatabaseTemplatesCommonInfoRepositoryImpl(private val db: DBInfo) :
     DatabaseTemplatesCommonInfoRepository {
 
     override fun getAllTemplatesInfo(): List<TemplatesDatabaseCommonInfoEntity> {
@@ -22,5 +21,4 @@ class DatabaseTemplatesCommonInfoRepositoryImpl(private val db: DBInfo = Exercis
     override fun getTemplateById(id: Int): TemplatesDatabaseCommonInfoEntity {
         return db.getTemplatesListInfoDAO().getTemplateById(id)
     }
-
 }

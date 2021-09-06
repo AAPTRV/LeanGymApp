@@ -37,7 +37,7 @@ android {
 def androidXNavigationFragmentVersion = '2.3.5'
 def androidXNavigationUIVersion = '2.3.5'
 def room_version = "2.3.0"
-
+def koin_version = '3.1.2'
 
 dependencies {
 
@@ -57,4 +57,13 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
     implementation "androidx.room:room-rxjava3:$room_version"
+    //Koin
+    implementation "io.insert-koin:koin-core:$koin_version"
+    // Koin main features for Android (Scope,ViewModel ...)
+    implementation "io.insert-koin:koin-android:$koin_version"
+    // Koin Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
+    // Koin for Jetpack WorkManager
+    implementation "io.insert-koin:koin-androidx-workmanager:$koin_version"
+
 }

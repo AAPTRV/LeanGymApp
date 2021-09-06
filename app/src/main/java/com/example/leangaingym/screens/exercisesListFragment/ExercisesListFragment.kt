@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.leangaingym.R
 import com.example.leangaingym.databinding.FragmentExercisesListBinding
+import org.koin.androidx.scope.ScopeFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

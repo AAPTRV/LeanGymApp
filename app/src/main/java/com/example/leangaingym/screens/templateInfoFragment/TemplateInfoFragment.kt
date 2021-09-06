@@ -5,12 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.leangaingym.R
 import com.example.leangaingym.databinding.FragmentTemplateInfoBinding
 import com.example.leangaingym.utils.TEMPLATE_ID
+import org.koin.androidx.scope.ScopeFragment
 import kotlin.properties.Delegates
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,7 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [TemplateInfoFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TemplateInfoFragment : Fragment() {
+class TemplateInfoFragment : ScopeFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -31,7 +31,7 @@ class TemplateInfoFragment : Fragment() {
     private var binding: FragmentTemplateInfoBinding? = null
     private var mAdapter: TemplateInfoExerciseUnitAdapter = TemplateInfoExerciseUnitAdapter()
     private var mTemplateId by Delegates.notNull<Int>()
-    private var mViewModel = TemplateViewModel(SavedStateHandle(), mDatabaseExercisesCommonInfoRepository = Data)
+//    private var mViewModel = TemplateViewModel(SavedStateHandle(), mDatabaseExercisesCommonInfoRepository = Data)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,8 +65,7 @@ class TemplateInfoFragment : Fragment() {
             )
         }
 
-        mAdapter.repopulateAdapterData()
-
+//        mAdapter.repopulateAdapterData()
 
     }
 

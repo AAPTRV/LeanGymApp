@@ -8,10 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.leangaingym.R
-import com.example.leangaingym.app.ExercisesApp
 import com.example.leangaingym.databinding.FragmentExerciseTuningBinding
-import com.example.leangaingym.ext.dbAndDtoTransformer.convertToDto
-import com.example.leangaingym.room.DBInfo
+import org.koin.androidx.scope.ScopeFragment
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,16 +22,15 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ExerciseTuningFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ExerciseTuningFragment : Fragment() {
+class ExerciseTuningFragment : ScopeFragment() {
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
     private var binding: FragmentExerciseTuningBinding? = null
-    private var mDatabase: DBInfo = ExercisesApp.mDatabase
     private var mAdapter: TemplatesAdapter = TemplatesAdapter()
-
+    private val mViewModel: ExerciseTuningViewModel by stateViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +59,7 @@ class ExerciseTuningFragment : Fragment() {
         binding?.recycleViewTemplates?.setHasFixedSize(true)
         binding?.recycleViewTemplates?.adapter = mAdapter
 
-        mAdapter.addListOfItems(mDatabase.getTemplatesListInfoDAO().getAllTemplatesInfo().convertToDto().toMutableList())
+        mAdapter.addListOfItems(mViewModel.getAllTemplatesFromDatabase().toMutableList())
 
     }
 
